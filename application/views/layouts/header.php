@@ -11,6 +11,8 @@
     <script src="/public/scripts/jquery.js"></script>
     <script src="/public/scripts/bootstrap.js"></script>
     <script src="/public/scripts/script.js"></script>
+    <script src="/public/scripts/dirPagination.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
 <body ng-apps=" ">
 <header class="header">

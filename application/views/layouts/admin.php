@@ -10,6 +10,10 @@
     <link href="/public/styles/style_new.css" rel="stylesheet">
     <script src="/public/scripts/jquery.js"></script>
     <script src="/public/scripts/bootstrap.js"></script>
+    <script src="/public/scripts/node_modules/angular/angular.js"></script>
+    <script src="/public/scripts/node_modules/angular-utils-pagination/dirPagination.js"></script>
+    <script src="/public/scripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="/public/styles/bootstrap.min.css">
 </head>
 <body class="fixed-nav sticky-footer bg-dark">
 <?php if ($this->route['action'] != 'login'): ?>

@@ -11,7 +11,7 @@ class Pagination {
     private $total;
     private $limit;
 
-    public function __construct($route, $total, $limit = 10) {
+    public function __construct($route, $total, $limit = 1) {
         $this->route = $route;
         $this->total = $total;
         $this->limit = $limit;
@@ -32,10 +32,10 @@ class Pagination {
         }
         if (!is_null($links)) {
             if ($this->current_page > 1) {
-                $links = $this->generateHtml(1, 'Вперед').$links;
+                $links = $this->generateHtml(1, 'Next').$links;
             }
             if ($this->current_page < $this->amount) {
-                $links .= $this->generateHtml($this->amount, 'Назад');
+                $links .= $this->generateHtml($this->amount, 'Back');
             }
         }
         $html .= $links.' </ul></nav>';
@@ -77,7 +77,6 @@ class Pagination {
             $this->current_page = 1;
         }
     }
-
     private function amount() {
         return ceil($this->total / $this->limit);
     }

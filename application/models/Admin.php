@@ -51,11 +51,11 @@ class Admin extends Model {
     }
 
     public function uploadImageHaircut($path,$id){
-//        $img = new \Imagick();
-//        $img->cropThumbnailImage(1080, 600);
-//        $img->setImageCompressionQuality(80);
-//        $img->writeImage('public/userImages/'.$id.'.jpg');
-        move_uploaded_file($path,'public/usersImages/'.$id.'.jpg');
+//     $img = new \Imagick();
+//     $img->cropThumbnailImage(1080, 600);
+//     $img->setImageCompressionQuality(80);
+//     $img->writeImage('public/userImages/'.$id.'.jpg');
+     move_uploaded_file($path,'public/usersImages/'.$id.'.jpg');
     }
 
     public function isHaircutExists($id){
@@ -94,7 +94,7 @@ class Admin extends Model {
     }
 
     public function postsLists($route){
-        $max = 10;
+        $max = 3;
         $value = [
             'max' => $max,
             'start' => ((($route['page'] ?? 1) - 1) * $max),
@@ -104,6 +104,9 @@ class Admin extends Model {
 
     public function validatePassword($password){
 
+    }
+    public function angularAsync(){
+        return $this->db->row('SELECT * FROM Barberka_haircuts ORDER BY ID DESC');
     }
 
 

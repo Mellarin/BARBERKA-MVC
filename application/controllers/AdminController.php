@@ -56,7 +56,7 @@ class AdminController extends Controller {
             exit('False!');
         } else{
             $this->model->haircutDelete($this->route['id']);
-            $this->view->redirect('admin/addhaircuts');
+            $this->view->redirect('admin/posts');
         }
         $this->view->render('Delete haircut');
     }
@@ -80,11 +80,17 @@ class AdminController extends Controller {
         $this->view->render('Edit haircut', $values);
     }
 
-    public function postsAction(){
-        $pagination = new Pagination($this->route,$this->model->numberOfHaircuts());
+    public function oldPostsAction(){
         $values = [
-            'pagination'=>$pagination->get(),
             'list'=>$this->model->postsLists($this->route),
+        ];
+        $this->view->render('Posts',$values);
+        //:TODO ??? Old pagination ???
+    }
+
+    public function postsAction(){
+        $values = [
+            'list' =>$this->model->angularAsync($this->route),
         ];
         $this->view->render('Posts',$values);
     }

@@ -24,10 +24,12 @@ class MainController extends Controller {
         $values = [
             'data' => $this->model->infoAboutHaircut($this->route['id'])[0],
         ];
-        $this->view->render('Edit haircut', $values);
+        $this->view->render('Haircut', $values);
     }
     public function haircutsAction(){
+        $pagination = new Pagination($this->route,$this->model->numberOfHaircuts());
         $values = [
+            'pagination'=>$pagination->get(),
             'list'=>$this->model->haircutsList($this->route),
         ];
         $this->view->render('Haircuts',$values);
